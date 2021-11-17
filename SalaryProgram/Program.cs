@@ -1,4 +1,6 @@
 ﻿using System;
+using SalaryProgram.View;
+
 
 namespace SalaryProgram
 {
@@ -7,7 +9,7 @@ namespace SalaryProgram
         static void Main(string[] args)
         {
             Console.WriteLine("Hello!");
-            //Testar
+            Login.Start();
 
 
         }
