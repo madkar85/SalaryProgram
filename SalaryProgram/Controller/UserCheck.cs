@@ -13,7 +13,11 @@ namespace SalaryProgram.Controller
         private Dictionary<string, Account> allUsers;
         //Lägg till användare i Dictionary
         
-
+        /// <summary>
+        /// Checks if the user exists
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
         public void IsUserOk(string name, string password)
         {
             
@@ -28,6 +32,19 @@ namespace SalaryProgram.Controller
             else
             {
                 Console.WriteLine("Wrong credentials, please try again.");
+            }
+        }
+
+        /// <summary>
+        /// Checks if the user exists and removes them
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="username"></param>
+        public void RemoveOwnUser(string password, string username)
+        {
+            if (allUsers.ContainsKey(username) && allUsers.ContainsKey(password))
+            {
+                    allUsers.Remove(username);
             }
         }
     }

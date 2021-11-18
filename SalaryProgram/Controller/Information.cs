@@ -10,6 +10,10 @@ namespace SalaryProgram.Controller
     {
         public static Dictionary<string, Account> allUsers;
 
+        /// <summary>
+        /// Displays the information about the user
+        /// </summary>
+        /// <param name="user"></param>
         public static void DisplayInfo(string user)
         {
             allUsers = new Dictionary<string, Account>();

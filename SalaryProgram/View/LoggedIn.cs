@@ -8,6 +8,10 @@ namespace SalaryProgram.View
 {
     public class LoggedIn
     {
+        /// <summary>
+        /// The menu when the user is logged in
+        /// </summary>
+        /// <param name="user"></param>
         public static void LoggedInView(string user)
         {
             bool keepgoing = true;

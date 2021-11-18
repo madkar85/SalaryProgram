@@ -7,6 +7,9 @@ namespace SalaryProgram
 {
     public class Login
     {
+        /// <summary>
+        /// The start view when the user logges in
+        /// </summary>
         public static void Start()
         {
             Console.WriteLine("Welcome!");
