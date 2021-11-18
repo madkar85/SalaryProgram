@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using SalaryProgram.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,12 +13,12 @@ namespace SalaryProgram.View
         /// The menu when the user is logged in
         /// </summary>
         /// <param name="user"></param>
-        public static void LoggedInView(string user)
+        public static void LoggedInView(string user, Dictionary<string, Account> userList)
         {
             bool keepgoing = true;
 
             Console.WriteLine("Welcome!");
-            while (!keepgoing)
+            while (keepgoing)
             {
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("1. View information");
@@ -27,10 +28,10 @@ namespace SalaryProgram.View
 
                 switch(choice){
                     case "1":
-                        Controller.Information.DisplayInfo(user);
+                        Controller.Information.DisplayInfo(user, userList);
                         break;
                     case "2":
-                        //Lägg till metod RemoveUser
+                        View.RemoveOwnUser.RemoveOwnUserView(userList);
                         break;
                     case "3":
                         Exit.ExitView();

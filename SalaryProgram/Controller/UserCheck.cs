@@ -4,13 +4,12 @@ using System.Reflection.Metadata;
 using System.Text;
 using SalaryProgram.Model;
 using System.Linq;
+using System.Threading;
 
 namespace SalaryProgram.Controller
 {
     public class UserCheck
     {
-
-        private Dictionary<string, Account> allUsers;
         //Lägg till användare i Dictionary
         
         /// <summary>
@@ -18,15 +17,15 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="name"></param>
         /// <param name="password"></param>
-        public void IsUserOk(string name, string password)
+        public void IsUserOk(string name, string password, Dictionary<string, Account> userList)
         {
             
 
 
-            if (allUsers.ContainsKey(name) && allUsers.ContainsKey(password))
+            if (userList.ContainsKey(name) && userList[name].Password == password)
             {
                 
-                View.LoggedIn.LoggedInView(name);
+                View.LoggedIn.LoggedInView(name, userList);
 
             }
             else
@@ -40,12 +39,15 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="password"></param>
         /// <param name="username"></param>
-        public void RemoveOwnUser(string password, string username)
+        public static void RemoveOwnUser(string password, string username, Dictionary<string, Account> userList)
         {
-            if (allUsers.ContainsKey(username) && allUsers.ContainsKey(password))
+            if (userList.ContainsKey(username) && userList[username].Password == password)
             {
-                    allUsers.Remove(username);
+                userList.Remove(username);
             }
+
+            Console.WriteLine("Your user is removed");
+            Thread.Sleep(3000);
         }
     }
 }

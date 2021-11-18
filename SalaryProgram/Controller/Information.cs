@@ -8,20 +8,16 @@ namespace SalaryProgram.Controller
 {
     public class Information
     {
-        public static Dictionary<string, Account> allUsers;
 
         /// <summary>
         /// Displays the information about the user
         /// </summary>
         /// <param name="user"></param>
-        public static void DisplayInfo(string user)
+        public static void DisplayInfo(string user, Dictionary<string, Account> userList)
         {
-            allUsers = new Dictionary<string, Account>();
-            //Skriv metod som visar användaren salary och role.
-            //Även alternativet att ta bort användaren?
-            Console.WriteLine("Username: " + allUsers[user].Name);
-            Console.WriteLine("Salary: " + allUsers[user].Salary);
-            Console.WriteLine("Role: " + allUsers[user].Role);
+            Console.WriteLine("Username: " + userList[user].Name);
+            Console.WriteLine("Salary: " + userList[user].Salary);
+            Console.WriteLine("Role: " + userList[user].Role);
         }
     }
 }
