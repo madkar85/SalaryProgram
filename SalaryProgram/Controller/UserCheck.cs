@@ -39,15 +39,16 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="password"></param>
         /// <param name="username"></param>
-        public static void RemoveOwnUser(string password, string username, Dictionary<string, Account> userList)
+        public static bool RemoveOwnUser(string password, string username, Dictionary<string, Account> userList)
         {
             if (userList.ContainsKey(username) && userList[username].Password == password)
             {
                 userList.Remove(username);
+                Console.WriteLine("Your user is removed");
+                Thread.Sleep(3000);
+                return true;
             }
-
-            Console.WriteLine("Your user is removed");
-            Thread.Sleep(3000);
+            return false; 
         }
     }
 }

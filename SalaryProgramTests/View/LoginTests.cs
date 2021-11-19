@@ -11,7 +11,7 @@ namespace SalaryProgram.Tests
     public class LoginTests
     {
         public static Dictionary<string, Account> allUsers;
-
+        /*
         [TestMethod()]
         public void StartTest_pass()
         {
@@ -29,5 +29,6 @@ namespace SalaryProgram.Tests
 
             Assert.Fail();
         }
+        */
     }
 }
