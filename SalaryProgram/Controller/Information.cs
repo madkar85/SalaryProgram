@@ -1,20 +1,23 @@
-﻿using System;
+﻿using SalaryProgram.Model;
+using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using SalaryProgram.Model;
 
 namespace SalaryProgram.Controller
 {
-    class Information
+    public class Information
     {
 
-        private  Dictionary<string, Account> allUsers;
-        public void DisplayInfo()
-        {
-            //Skriv metod som visar användaren salary och role.
-            //Även alternativet att ta bort användaren?
 
-            allUsers = new Dictionary<string, Account>();
+        private  Dictionary<string, Account> allUsers;
+      
+        public void DisplayInfo(string user, Dictionary<string, Account> userList)
+        {
+            Console.WriteLine("Username: " + userList[user].Name);
+            Console.WriteLine("Salary: " + userList[user].Salary);
+            Console.WriteLine("Role: " + userList[user].Role);
 
         }
 
@@ -57,5 +60,6 @@ namespace SalaryProgram.Controller
             allUsers.Add(user.Name, user);
             return true;
         }
+
     }
 }
