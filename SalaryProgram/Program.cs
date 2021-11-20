@@ -1,15 +1,14 @@
 ﻿using System;
+using SalaryProgram.View;
+
 
 namespace SalaryProgram
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Hello!");
-            //Testar
-
-
+        {       
+            Login.Start();
         }
     }
 }
