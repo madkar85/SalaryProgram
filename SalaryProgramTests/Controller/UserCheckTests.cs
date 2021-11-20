@@ -24,19 +24,6 @@ namespace SalaryProgram.Controller.Tests
 
             Assert.AreEqual(result, expected);
            
-        }
-
-        [TestMethod()]
-        [DataRow("Madde", "abc123")]
-        public void IsUserOkTest(string name, string password)
-        {
-            allUsers = new Dictionary<string, Account>();
-            allUsers.Add("Madde", new User(name, password, 20000, "receptionist"));
-
-           var result = UserCheck.IsUserOk(name, password, allUsers);
-           var expected = true;
-
-            Assert.AreEqual(result, expected);
-        }  
+        } 
     }
 }
