@@ -13,7 +13,7 @@ namespace SalaryProgram.Controller
 
         private  Dictionary<string, Account> allUsers;
       
-        public void DisplayInfo(string user, Dictionary<string, Account> userList)
+        public static void DisplayInfo(string user, Dictionary<string, Account> userList)
         {
             Console.WriteLine("Username: " + userList[user].Name);
             Console.WriteLine("Salary: " + userList[user].Salary);
@@ -28,8 +28,9 @@ namespace SalaryProgram.Controller
         /// <returns></returns>
         public Account GetAccount(string user)
         {
-            if (allUsers.ContainsKey(user))
-                return allUsers[user];
+            if (user != null)
+                if (allUsers.ContainsKey(user))
+                    return allUsers[user];
             return null;
         }
 
