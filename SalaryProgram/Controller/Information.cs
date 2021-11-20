@@ -9,10 +9,14 @@ namespace SalaryProgram.Controller
 {
     public class Information
     {
+        private static Dictionary<string, Account> allUsers = new Dictionary<string, Account>();
+        
 
-
-        private  Dictionary<string, Account> allUsers;
-      
+        /// <summary>
+        /// Displays information about the user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="userList"></param>
         public static void DisplayInfo(string user, Dictionary<string, Account> userList)
         {
             Console.WriteLine("Username: " + userList[user].Name);
@@ -26,7 +30,7 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Account GetAccount(string user)
+        public static Account GetAccount(string user)
         {
             if (user != null)
                 if (allUsers.ContainsKey(user))
@@ -39,7 +43,7 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public bool RemoveAccount(string user)
+        public static bool RemoveAccount(string user)
         {
             if (allUsers.ContainsKey(user))
                 if (allUsers[user].IsAdmin)
@@ -55,7 +59,7 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public bool AddNewUser(Account user)
+        public static bool AddNewUser(Account user)
         {
             if (allUsers.ContainsKey(user.Name)) return false;
             allUsers.Add(user.Name, user);

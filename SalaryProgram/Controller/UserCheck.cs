@@ -10,8 +10,7 @@ namespace SalaryProgram.Controller
 {
     public class UserCheck
     {
-        //Lägg till användare i Dictionary
-        
+
         /// <summary>
         /// Checks if the user exists
         /// </summary>
@@ -19,14 +18,19 @@ namespace SalaryProgram.Controller
         /// <param name="password"></param>
         public void IsUserOk(string name, string password, Dictionary<string, Account> userList)
         {
-            
+
 
 
             if (userList.ContainsKey(name) && userList[name].Password == password)
             {
-                
-                View.LoggedIn.LoggedInView(name, userList);
-
+                if (userList[name].IsAdmin)
+                {
+                    View.LoggedIn.LoggedInAdminView(name, userList);
+                }
+                else
+                {
+                    View.LoggedIn.LoggedInUserView(name, userList);
+                }
             }
             else
             {
@@ -48,7 +52,7 @@ namespace SalaryProgram.Controller
                 Thread.Sleep(3000);
                 return true;
             }
-            return false; 
+            return false;
         }
     }
 }
