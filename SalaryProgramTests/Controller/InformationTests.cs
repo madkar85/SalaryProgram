@@ -48,7 +48,7 @@ namespace SalaryProgram.Controller.Tests
         }
 
         [TestMethod()]
-        [DataRow("lee", false)]
+        [DataRow("lee2", false)]
         public void RemoveAccountTest(string name, bool result)
         {
             var actual = Information.RemoveAccount(name);
