@@ -49,12 +49,13 @@ namespace SalaryProgram.Controller
         /// <returns></returns>
         public static bool RemoveAccount(string user)
         {
-            if (allUsers.ContainsKey(user))
-                if (allUsers[user].IsAdmin)
-                {
-                    allUsers.Remove(user);
-                    return true;
-                }
+            if (user != null)
+                if (allUsers.ContainsKey(user))
+                    if (allUsers[user].IsAdmin)
+                    {
+                        allUsers.Remove(user);
+                        return true;
+                    }
             return false;
         }
 
@@ -65,9 +66,13 @@ namespace SalaryProgram.Controller
         /// <returns></returns>
         public static bool AddNewUser(Account user)
         {
-            if (allUsers.ContainsKey(user.Name)) return false;
-            allUsers.Add(user.Name, user);
-            return true;
+            if (user != null && user.Name != null)
+            {
+                if (allUsers.ContainsKey(user.Name)) return false;
+                allUsers.Add(user.Name, user);
+                return true;
+            }
+            return false;
         }
 
     }
