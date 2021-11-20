@@ -23,8 +23,7 @@ namespace SalaryProgram
             Console.WriteLine("Enter your password: ");
             string password = Console.ReadLine();
 
-            UserCheck userCheck = new UserCheck();
-            userCheck.IsUserOk(username, password, userList);
+            UserCheck.IsUserOk(username, password, userList);
         }
     }
 }

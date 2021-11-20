@@ -16,7 +16,7 @@ namespace SalaryProgram.Controller
         /// </summary>
         /// <param name="name"></param>
         /// <param name="password"></param>
-        public void IsUserOk(string name, string password, Dictionary<string, Account> userList)
+        public static bool IsUserOk(string name, string password, Dictionary<string, Account> userList)
         {
 
 
@@ -26,15 +26,18 @@ namespace SalaryProgram.Controller
                 if (userList[name].IsAdmin)
                 {
                     View.LoggedIn.LoggedInAdminView(name, userList);
+                    return true;
                 }
                 else
                 {
                     View.LoggedIn.LoggedInUserView(name, userList);
+                    return true;
                 }
             }
             else
             {
                 Console.WriteLine("Wrong credentials, please try again.");
+                return false;
             }
         }
 
