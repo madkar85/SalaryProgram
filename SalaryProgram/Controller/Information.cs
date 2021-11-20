@@ -51,7 +51,7 @@ namespace SalaryProgram.Controller
         {
             if (user != null)
                 if (allUsers.ContainsKey(user))
-                    if (allUsers[user].IsAdmin)
+                    if (!allUsers[user].IsAdmin)
                     {
                         allUsers.Remove(user);
                         return true;

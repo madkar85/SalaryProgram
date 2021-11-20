@@ -43,7 +43,15 @@ namespace SalaryProgram.Controller.Tests
         public void AddNewUserTest(string name, bool result)
         {
             var actual = Information.AddNewUser(new User(name, "qwerty", 20000, "bouncer"));
-            
+
+            Assert.AreEqual(result, actual);
+        }
+
+        [TestMethod()]
+        [DataRow("lee", false)]
+        public void RemoveAccountTest(string name, bool result)
+        {
+            var actual = Information.RemoveAccount(name);
             Assert.AreEqual(result, actual);
         }
     }
